@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Visualizations — TrAcE{% endblock %}
+
+{% block head %}
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="mb-3 text-center">
+        <h2>Data Visualizations</h2>
+        <p class="text-muted">Interactive charts summarizing posts by date, platform and cluster.</p>
+    </div>
+
+    <div class="row gy-4">
+        <div class="col-12">
+            <div class="card p-3">{{ pie_chart | safe }}</div>
+        </div>
+        <div class="col-12">
+            <div class="card p-3">{{ stacked_bar_chart | safe }}</div>
+        </div>
+        <div class="col-12">
+            <div class="card p-3">{{ line_graph | safe }}</div>
+        </div>
+        <div class="col-12">
+            <div class="card p-3">{{ grouped_bar_chart | safe }}</div>
+        </div>
+    </div>
+{% endblock %}
+

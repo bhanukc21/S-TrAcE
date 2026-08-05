@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Predict — TrAcE{% endblock %}
+
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card p-4 card-elevated">
+        <h2 class="mb-3">Enter Text for Prediction</h2>
+        <form method="post" action="/predict">
+          <div class="mb-3">
+            <label for="user_input" class="form-label">Enter your sentence</label>
+            <input type="text" id="user_input" name="user_input" class="form-control" placeholder="Type a post or headline...">
+          </div>
+          <button class="btn btn-primary">Predict</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+

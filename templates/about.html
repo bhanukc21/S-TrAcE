@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}About — TrAcE{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-lg-8">
+      <h2>Overview</h2>
+      <p class="lead">A lightweight interface to visualize and analyze trending social media posts across domains such as politics, movies, sports, crime and education.</p>
+
+      <h4>Data Collection & Processing</h4>
+      <p>Collected data is preprocessed, feature-extracted and clustered to identify meaningful trends.</p>
+
+      <h4>Tech</h4>
+      <ul>
+        <li>Flask backend</li>
+        <li>Pandas / scikit-learn for processing & clustering</li>
+        <li>Plotly for interactive visualizations</li>
+      </ul>
+    </div>
+    <div class="col-lg-4">
+      <h4>Highlights</h4>
+      <ul>
+        <li>Interactive charts</li>
+        <li>Category-based top posts</li>
+        <li>Simple prediction demo</li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}
+

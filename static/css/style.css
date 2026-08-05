@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+:root{
+  --bg:#f3f6fb;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --text:#0f1724;
+  --accent:#0d6efd;
+  --glass: rgba(255,255,255,0.7);
+}
+
+html,body{height:100%;}
+body{
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(13,110,253,0.06), transparent), var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Dark mode variables */
+.dark-mode{
+  --bg: #071028;
+  --card: #0b1220;
+  --muted: #9aa6b2;
+  --text: #e6eef8;
+  --accent: #60a5fa;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(96,165,250,0.03), transparent), var(--bg);
+}
+
+/* smooth transitions */
+body, .card-elevated, .navbar, .hero{transition:background-color .25s ease, color .18s ease, box-shadow .18s ease}
+
+.navbar-brand{font-weight:800; font-size:1.15rem; letter-spacing:0.6px}
+.navbar{box-shadow:0 6px 18px rgba(15,23,36,0.06)}
+
+.card-elevated{border-radius:12px; background:var(--card); transition:transform .18s ease, box-shadow .18s ease}
+.card-elevated:hover{transform:translateY(-6px); box-shadow:0 18px 40px rgba(15,23,36,0.08)}
+
+.hero{padding:48px; border-radius:14px; background:linear-gradient(180deg, rgba(13,110,253,0.08), rgba(13,110,253,0.02));}
+.hero h1{font-weight:800; letter-spacing:-0.5px}
+.hero p{color:var(--muted)}
+
+.lead{color:var(--muted)}
+
+.btn-primary{background:linear-gradient(90deg,#0d6efd,#3b82f6); border:none}
+
+footer{opacity:0.95}
+
+@media (max-width:767px){
+  .hero{padding:28px}
+}
+
+/* small helper */
+.muted{color:var(--muted)}

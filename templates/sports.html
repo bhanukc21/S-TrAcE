@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Statistics</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<!--     
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#357ecd; padding: 3px 10px;">
+    <div class="container">
+      <a class="navbar-brand" href="#" style="font-size: 26px; color: #ffffff;">TrAcE</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/" id="homeLink" style="font-size: 16px; color: #fff;">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="font-size: 16px; color: #fff;">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="font-size: 16px; color: #fff;">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/login" style="font-size: 16px; color: #fff;">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/register" style="font-size: 16px; color: #fff;">Register</a>
+        </li>
+      </ul>
+    </div>
+  </nav> -->
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f8f9fa; /* Light gray background */
+        }
+        #pie_chart {
+            width: 100%;
+            height: 400px;
+        }
+        #bar_chart {
+            width: 100%;
+            height: 400px;
+        }
+        .trending-posts {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .trending-posts a {
+            font-size: 24px; /* Adjust font size as needed */
+            font-weight: bold;
+            color: #000000; /* Set color to black */
+            text-decoration: none; /* Remove underline */
+        }
+        .trending-posts a:hover {
+            color: #cae640; /* Darken color on hover */
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="text-center">Social Media Pie Chart : {{category}}</h2>
+                <div class="text-center" id="pie_chart"></div>
+            </div>
+            <div class="col-md-6">
+                <h2 class="text-center">Social Media Bar Graph : {{category}}</h2>
+                <div class="text-center" id="bar_chart"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 trending-posts">
+                <a href="/posts/{{ category }}" class="btn btn-primary bg-custom btn-lg" style="border-radius: 20px; background-color: black;color: white;"> View Top 5 trending posts : {{category}} </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+  
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawCharts);
+
+        function drawCharts() {
+            drawPieChart();
+            drawBarChart();
+        }
+
+        function drawPieChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Social Media', 'Percentage'],
+                ['Facebook', 30],
+                ['Instagram', 20],
+                ['LinkedIn', 25],
+                ['Twitter', 15],
+                ['Reddit', 10]
+            ]);
+
+            var options = {
+                title: 'Social Media Distribution',
+                pieHole: 0.4,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('pie_chart'));
+            chart.draw(data, options);
+        }
+
+        function drawBarChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Social Media', 'Percentage'],
+                ['Facebook', 30],
+                ['Instagram', 20],
+                ['LinkedIn', 25],
+                ['Twitter', 15],
+                ['Reddit', 10]
+            ]);
+
+            var options = {
+                title: 'Social Media Distribution',
+                chartArea: { width: '50%' },
+                hAxis: {
+                    title: 'Percentage',
+                    minValue: 0
+                },
+                vAxis: {
+                    title: 'Social Media'
+                }
+            };
+
+            var chart = new google.visualization.BarChart(document.getElementById('bar_chart'));
+            chart.draw(data, options);
+            function redirectToCategory(category) {
+                window.location.href = "/category/" + category;
+                console.log(category + " " + " page accessed!");
+            }
+        }
+    </script>
+</body>
+</html>
