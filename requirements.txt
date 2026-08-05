@@ -5,6 +5,3 @@ plotly
 scikit-learn
 gunicorn
 python-dotenv
-transformers
-torch
-pytorch
